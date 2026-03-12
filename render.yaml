@@ -11,9 +11,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        sync: false   # <-- set your MongoDB URI manually in Render dashboard
+        sync: false   # ⚠️ Set your cloud MongoDB URI in Render dashboard
       - key: JWT_SECRET
-        sync: false   # <-- set your JWT secret manually in Render dashboard
+        sync: false   # ⚠️ Set your JWT secret in Render dashboard
 
   # Storefront (Next.js)
   - type: web
@@ -27,13 +27,13 @@ services:
       - key: NEXT_PUBLIC_API_URL
         value: https://shoplux-api.onrender.com/api
 
-  # Admin panel (Vite)
+  # Admin panel (Vite, production-ready)
   - type: web
     name: shoplux-admin
     env: node
     rootDir: apps/admin
     buildCommand: npm install && npm run build
-    startCommand: vite preview --port $PORT --host
+    startCommand: npx serve -s dist -l $PORT
     plan: free
     envVars:
       - key: VITE_API_URL
