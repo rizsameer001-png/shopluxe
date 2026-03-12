@@ -25,16 +25,16 @@ services:
     plan: free
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: https://shoplux-api.onrender.com
+        value: https://shoplux-api.onrender.com/api
 
-  # Admin panel (Next.js)
+  # Admin panel (Vite)
   - type: web
     name: shoplux-admin
     env: node
     rootDir: apps/admin
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    startCommand: npm run preview
     plan: free
     envVars:
-      - key: NEXT_PUBLIC_API_URL
-        value: https://shoplux-api.onrender.com
+      - key: VITE_API_URL
+        value: https://shoplux-api.onrender.com/api
