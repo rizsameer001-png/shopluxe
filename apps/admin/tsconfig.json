@@ -1,3 +1,19 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "module": "ESNext",
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "moduleResolution": "bundler",
+//     "types": ["vite/client", "node"],
+//     "jsx": "react-jsx",
+//     "strict": true,
+//     "esModuleInterop": true,              // ✅ needed for goober
+//     "allowJs": true,
+//     "skipLibCheck": true,                 // ✅ avoids d.ts errors
+//   },
+//   "include": ["src"]
+// }
+
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -6,7 +22,8 @@
     "moduleResolution": "bundler",
     "types": ["vite/client"],
     "jsx": "react-jsx",
-    "strict": true
+    "strict": true,
+    "allowImportingTsExtensions": false   // ❌ disable this
   },
   "include": ["src"]
 }
