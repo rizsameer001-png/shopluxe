@@ -128,6 +128,8 @@ export default function CheckoutPage() {
   };
 
   const handleSavedAddressSelect = (idx: number) => {
+    //const addr = user.addresses[idx];
+    if (!user) return;
     const addr = user.addresses[idx];
     setSelectedSavedIdx(idx);
     setAddress({
@@ -271,11 +273,11 @@ export default function CheckoutPage() {
               </h2>
 
               {/* Saved addresses */}
-              {user?.addresses?.length > 0 && (
+              {(user?.addresses?.length ?? 0) > 0 && (
                 <div className="mb-6">
                   <p className="text-sm font-medium text-gray-700 mb-3">Saved addresses</p>
                   <div className="space-y-2">
-                    {user.addresses.map((addr: any, idx: number) => (
+                    {user?.addresses?.map((addr: any, idx: number) => (
                       <label key={idx} className={`flex items-start gap-3 p-3.5 border-2 rounded-xl cursor-pointer transition-all ${selectedSavedIdx === idx ? 'border-gray-900 bg-gray-50' : 'border-gray-200 hover:border-gray-300'}`}>
                         <input type="radio" name="savedAddr" checked={selectedSavedIdx === idx}
                           onChange={() => handleSavedAddressSelect(idx)} className="mt-0.5 accent-gray-900" />

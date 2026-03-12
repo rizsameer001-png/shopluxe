@@ -31,9 +31,13 @@ export default function ProductsPage() {
     queryFn: () => categoriesAPI.getAll(),
   });
 
-  const products = data?.data?.data || [];
-  const pagination = data?.data?.pagination || {};
-  const categories = categoriesData?.data?.data || [];
+  // const products = data?.data?.data || [];
+  // const pagination = data?.data?.pagination || {};
+  // const categories = categoriesData?.data?.data || [];
+
+  const products = data?.data?.data ?? [];
+const pagination = data?.data?.pagination ?? { pages: 1, hasNext: false, hasPrev: false, total: 0 };
+const categories = categoriesData?.data?.data ?? [];
 
   const updateFilter = (key: string, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value, page: 1 }));
