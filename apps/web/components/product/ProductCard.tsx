@@ -39,7 +39,7 @@ product.comparePrice && product.comparePrice > product.price
 const handleAddToCart = async (e: React.MouseEvent) => {
 e.preventDefault();
 
-```
+
 if (!isAuthenticated) {
   toast.error('Please sign in to add items to cart');
   return;
@@ -61,14 +61,13 @@ try {
 } finally {
   setAddingToCart(false);
 }
-```
+
 
 };
 
 const handleWishlist = async (e: React.MouseEvent) => {
 e.preventDefault();
 
-```
 if (!isAuthenticated) {
   toast.error('Please sign in to save items');
   return;
@@ -81,7 +80,7 @@ try {
 } catch {
   toast.error('Failed to update wishlist');
 }
-```
+
 
 };
 
@@ -89,7 +88,7 @@ return ( <div className="group relative">
 {/* Full card clickable */}
 <Link href={`/products/${product.slug}`} className="absolute inset-0 z-0" />
 
-```
+
   <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300">
     {/* Image */}
     <div className="relative aspect-square overflow-hidden bg-gray-50">

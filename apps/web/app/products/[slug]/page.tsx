@@ -102,7 +102,7 @@ export default function ProductDetailPage() {
         {/* Images */}
         <div className="space-y-4">
           {/*<div className="aspect-square rounded-2xl overflow-hidden bg-gray-50 border border-gray-100">*/}
-          <div className="w-full h-[500px] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100">
+          <div className="w-full h-[600px] rounded-2xl overflow-hidden bg-gray-50 border border-gray-100">
             <img src={resolvedImages[activeImage]?.url} alt={resolvedImages[activeImage]?.alt || product.name} className="w-full h-full object-cover" />
           </div>
           {resolvedImages.length > 1 && (

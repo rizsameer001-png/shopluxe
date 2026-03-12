@@ -1,0 +1,40 @@
+services:
+  # Backend API
+  - type: web
+    name: shoplux-api
+    env: node
+    rootDir: apps/server
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+
+  # Storefront (Next.js)
+  - type: web
+    name: shoplux-web
+    env: node
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://shoplux-api.onrender.com
+
+  # Admin panel (Next.js)
+  - type: web
+    name: shoplux-admin
+    env: node
+    rootDir: apps/admin
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://shoplux-api.onrender.com
