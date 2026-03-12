@@ -11,9 +11,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        sync: false
+        sync: false   # <-- set your MongoDB URI manually in Render dashboard
       - key: JWT_SECRET
-        sync: false
+        sync: false   # <-- set your JWT secret manually in Render dashboard
 
   # Storefront (Next.js)
   - type: web
@@ -33,7 +33,7 @@ services:
     env: node
     rootDir: apps/admin
     buildCommand: npm install && npm run build
-    startCommand: npm run preview
+    startCommand: vite preview --port $PORT --host
     plan: free
     envVars:
       - key: VITE_API_URL
