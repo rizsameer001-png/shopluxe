@@ -1,0 +1,35 @@
+{
+  "name": "shoplux-ecommerce",
+  "version": "1.0.0",
+  "description": "ShopLux — Full-Stack E-commerce Monorepo (Server + Web Client + Admin Dashboard)",
+  "private": true,
+  "workspaces": [
+    "apps/server",
+    "apps/web",
+    "apps/admin"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web,admin -c blue,green,yellow \"npm run dev --workspace=apps/server\" \"npm run dev --workspace=apps/web\" \"npm run dev --workspace=apps/admin\"",
+    "dev:server": "npm run dev --workspace=apps/server",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:admin": "npm run dev --workspace=apps/admin",
+    "build": "npm run build --workspace=apps/web && npm run build --workspace=apps/admin",
+    "build:web": "npm run build --workspace=apps/web",
+    "build:admin": "npm run build --workspace=apps/admin",
+    "start:server": "npm run start --workspace=apps/server",
+    "start:web": "npm run start --workspace=apps/web",
+    "seed": "npm run seed --workspace=apps/server",
+    "install:all": "npm install --workspace=apps/server && npm install --workspace=apps/web && npm install --workspace=apps/admin"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "autoprefixer": "^10.4.27",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
